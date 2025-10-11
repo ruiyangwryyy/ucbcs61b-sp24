@@ -85,9 +85,14 @@ public class Model {
      * */
     public boolean emptySpaceExists() {
         // TODO: Task 2. Fill in this function.
+       for(int x=0;x<board.size();x++){
+        for(int y=0;y<board.size();y++){
+            if(board.tile(x,y)==null){
+                return true;
+            }
+        }
         return false;
-    }
-
+       }
     /**
      * Returns true if any tile is equal to the maximum valid value.
      * Maximum valid value is given by this.MAX_PIECE. Note that
@@ -95,6 +100,13 @@ public class Model {
      */
     public boolean maxTileExists() {
         // TODO: Task 3. Fill in this function.
+        for(int x=0;x<board.size();x++){
+            for(int y=0;y<board.size();y++){
+                if(board.tile(x,y)!=null && board.tile(x,y).value()==MAX_PIECE){
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -180,4 +192,5 @@ public class Model {
     public int hashCode() {
         return toString().hashCode();
     }
+}
 }
